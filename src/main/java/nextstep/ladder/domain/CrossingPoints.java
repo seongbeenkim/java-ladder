@@ -20,7 +20,7 @@ public class CrossingPoints {
     }
 
     public List<Boolean> pointsConnection() {
-        return this.crossingPoints.stream()
+        return crossingPoints.stream()
                 .map(CrossingPoint::point)
                 .map(Point::hasRightDirection)
                 .limit(crossingPoints().size() - 1)

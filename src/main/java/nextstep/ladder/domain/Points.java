@@ -41,13 +41,6 @@ public class Points {
         return Collections.unmodifiableList(points);
     }
 
-    public List<Boolean> pointsConnection() {
-        return this.points.stream()
-                .map(Point::hasRightDirection)
-                .limit(points().size() - 1)
-                .collect(Collectors.toList());
-    }
-
     public Point findByIndex(int pointIndex) {
         return points.get(pointIndex);
     }

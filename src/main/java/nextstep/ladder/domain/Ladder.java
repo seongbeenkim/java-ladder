@@ -52,12 +52,8 @@ public class Ladder {
     }
 
     private int move(int pointIndex) {
-        int lastPointIndex = pointIndex;
-
-        for (Line line : lines.lines()) {
-            lastPointIndex = line.move(lastPointIndex);
-        }
-
-        return lastPointIndex;
+        return lines.lines()
+                .stream()
+                .reduce(pointIndex, (lastPointIndex, line) -> line.move(lastPointIndex), (resultPointIndex, resultFromMoveOperation) -> resultPointIndex);
     }
 }
